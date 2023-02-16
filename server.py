@@ -14,11 +14,21 @@ def loadCompetitions():
         return listOfCompetitions
 
 
+def booking(clubs, competitions):
+    booked_places = {}
+    for club in clubs:
+        booked_places[club['name']] = {}
+        for competition in competitions:
+            booked_places[club['name']][competition['name']] = 0
+    return booked_places
+
+
 app = Flask(__name__)
 app.secret_key = 'something_special'
 
 competitions = loadCompetitions()
 clubs = loadClubs()
+booking = booking(clubs, competitions)
 
 
 @app.route('/')
@@ -52,11 +62,15 @@ def purchasePlaces():
     competition = [c for c in competitions if c['name'] == request.form['competition']][0]
     club = [c for c in clubs if c['name'] == request.form['club']][0]
     placesRequired = int(request.form['places'])
+    booked_places_by_club = booking[club['name']][competition['name']]
     if placesRequired > int(club['points']):
         flash("Sorry, you didn't have enough points")
+    elif placesRequired + booked_places_by_club > 12:
+        flash("You can't book more than 12 places in competition")
     else:
         competition['numberOfPlaces'] = int(competition['numberOfPlaces']) - placesRequired
         club['points'] = int(club['points']) - placesRequired
+        booking[club['name']][competition['name']] += placesRequired
         flash('Great-booking complete!')
     return render_template('welcome.html', club=club, competitions=competitions)
 

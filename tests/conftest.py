@@ -31,3 +31,11 @@ server.competitions = [
         "numberOfPlaces": "13"
     }
 ]
+
+server.booking = {
+    "Test1": {"Spring Festival": 0, "Fall Classic": "0"},
+    "Test2": {"Spring Festival": 0, "Fall Classic": "0"},
+    "Test3": {"Spring Festival": 0, "Fall Classic": "0"},
+    "Test4": {"Spring Festival": 0, "Fall Classic": "0"},
+    "Test5": {"Spring Festival": 0, "Fall Classic": "0"}
+}
