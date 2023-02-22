@@ -11,5 +11,6 @@ class TestConnection:
 
     def test_unknown_email(self, client):
         response = client.post("/showSummary", data={"email": "testunknown@test.com"}, follow_redirects=True)
-        expected = b'<p>Sorry, that email wasn\'t found.</p>'
-        assert expected in response.data
+        data = response.data.decode()
+        expected = "<p>Sorry, that email wasn&#39;t found.</p>"
+        assert expected in data

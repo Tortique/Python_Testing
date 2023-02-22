@@ -22,7 +22,7 @@ server.clubs = [
 server.competitions = [
     {
         "name": "Spring Festival",
-        "date": "2020-03-27 10:00:00",
+        "date": "2023-03-27 10:00:00",
         "numberOfPlaces": "25"
     },
     {
@@ -33,9 +33,9 @@ server.competitions = [
 ]
 
 server.booking = {
-    "Test1": {"Spring Festival": 0, "Fall Classic": "0"},
-    "Test2": {"Spring Festival": 0, "Fall Classic": "0"},
-    "Test3": {"Spring Festival": 0, "Fall Classic": "0"},
-    "Test4": {"Spring Festival": 0, "Fall Classic": "0"},
-    "Test5": {"Spring Festival": 0, "Fall Classic": "0"}
+    "Test1": {"Spring Festival": 0, "Fall Classic": 0},
+    "Test2": {"Spring Festival": 0, "Fall Classic": 0},
+    "Test3": {"Spring Festival": 0, "Fall Classic": 0},
+    "Test4": {"Spring Festival": 0, "Fall Classic": 0},
+    "Test5": {"Spring Festival": 0, "Fall Classic": 0}
 }
